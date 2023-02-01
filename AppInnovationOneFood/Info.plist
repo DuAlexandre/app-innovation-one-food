@@ -21,6 +21,8 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Testing GPS</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
