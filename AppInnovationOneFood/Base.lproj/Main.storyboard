@@ -80,10 +80,32 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite um Endereço" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fA9-j7-QYu">
+                                <rect key="frame" x="20" y="117" width="293" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="o1A-Ka-IiU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfD-bL-BtL">
+                                <rect key="frame" x="321" y="125" width="49" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="GO"/>
+                                <connections>
+                                    <action selector="tappedShowAddress:" destination="yeH-NL-9Q2" eventType="touchUpInside" id="rf9-ph-U9X"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="73S-j8-CsI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="fA9-j7-QYu" firstAttribute="top" secondItem="73S-j8-CsI" secondAttribute="top" constant="14" id="7YO-g9-uc5"/>
+                            <constraint firstItem="fA9-j7-QYu" firstAttribute="leading" secondItem="73S-j8-CsI" secondAttribute="leading" constant="20" id="Cfn-G4-CwC"/>
+                            <constraint firstItem="73S-j8-CsI" firstAttribute="trailing" secondItem="fA9-j7-QYu" secondAttribute="trailing" constant="80" id="EH6-am-mPa"/>
                             <constraint firstItem="odm-0e-omN" firstAttribute="leading" secondItem="73S-j8-CsI" secondAttribute="leading" id="lx7-M3-2Pc"/>
                             <constraint firstItem="73S-j8-CsI" firstAttribute="bottom" secondItem="odm-0e-omN" secondAttribute="bottom" id="qKw-hB-BIi"/>
                             <constraint firstItem="odm-0e-omN" firstAttribute="top" secondItem="73S-j8-CsI" secondAttribute="top" id="rUd-6c-590"/>
@@ -92,12 +114,41 @@
                     </view>
                     <navigationItem key="navigationItem" id="Juh-pv-j4l"/>
                     <connections>
+                        <outlet property="addressTextField" destination="fA9-j7-QYu" id="800-b2-tfl"/>
                         <outlet property="mapView" destination="odm-0e-omN" id="9pJ-Mt-DtD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AVF-xB-qJe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="876" y="29"/>
+        </scene>
+        <!--Addresses Table View Controller-->
+        <scene sceneID="aTX-kb-JKN">
+            <objects>
+                <tableViewController storyboardIdentifier="AddressesTableViewController" id="SSn-ZE-IOK" customClass="AddressesTableViewController" customModule="AppInnovationOneFood" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="doD-8w-0eN">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddressCell" id="Ofi-Yz-Qgc">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ofi-Yz-Qgc" id="E5k-3D-Klo">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="SSn-ZE-IOK" id="mmK-yM-ZPi"/>
+                            <outlet property="delegate" destination="SSn-ZE-IOK" id="WOt-Iz-sRp"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eqg-nF-qOj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1596" y="29"/>
         </scene>
     </scenes>
     <resources>

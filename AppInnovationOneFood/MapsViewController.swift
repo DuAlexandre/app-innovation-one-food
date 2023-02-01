@@ -13,6 +13,8 @@ class MapsViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager: CLLocationManager = CLLocationManager()
+    var selectedAddress: Address? = nil
+    @IBOutlet weak var addressTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,50 @@ class MapsViewController: UIViewController {
             locationManager.requestLocation()
         }
         
+    }
+    
+    //Mostra o ponto de posicionamento na tela
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        mapView.showsUserLocation = true
+        // Metodo abaixo é responsável por ficar fazendo o update da localização
+        locationManager.startUpdatingLocation()
+    }
+    
+    
+    @IBAction func tappedShowAddress(_ sender: Any) {
+        getPossibleAddressesFromText()
+    }
+    
+    private func getPossibleAddressesFromText() {
+        var addresses: [Address] = []
+        // Metodo abaixo recebe um texto e vai buscar o resultado
+        CLGeocoder().geocodeAddressString(addressTextField.text!) { (placemarks, error) in
+            if error == nil {
+                for placemark in placemarks! {
+                    addresses.append(self.convertToAddress(placemark: placemark))
+                }
+                self.showAddressesTable(addresses: addresses)
+            } else {
+                let controller = UIAlertController(title: "Error", message: "Problem trying to fetch addresses from the text.", preferredStyle: UIAlertController.Style.alert)
+                self.present(controller, animated: true)
+            }
+        }
+                                          
+    }
+    
+    private func convertToAddress(placemark: CLPlacemark) -> Address {
+        return Address(name: placemark.postalAddress!.street, placemark: placemark, postalAddress: placemark.postalAddress!);
+    }
+    
+    private func showAddressesTable(addresses: [Address]) {
+        let addressesVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "AddressesTableViewController") as!
+            AddressesTableViewController
+        addressesVC.addresses = addresses
+        addressesVC.selectedAddress = { address in
+            self.selectedAddress = address
+        }
+        self.navigationController?.pushViewController(addressesVC, animated: true)
     }
 }
 

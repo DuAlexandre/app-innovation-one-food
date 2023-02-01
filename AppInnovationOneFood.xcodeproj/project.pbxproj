@@ -15,6 +15,8 @@
 		A0BBC1A0298AFDE700A79754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0BBC19F298AFDE700A79754 /* Assets.xcassets */; };
 		A0BBC1A3298AFDE700A79754 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0BBC1A1298AFDE700A79754 /* LaunchScreen.storyboard */; };
 		A0BBC1AB298B01B100A79754 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBC1AA298B01B100A79754 /* MapsViewController.swift */; };
+		A0BBC1AD298B151B00A79754 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBC1AC298B151A00A79754 /* Address.swift */; };
+		A0BBC1AF298B17B300A79754 /* AddressesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BBC1AE298B17B300A79754 /* AddressesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		A0BBC1A2298AFDE700A79754 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0BBC1A4298AFDE700A79754 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0BBC1AA298B01B100A79754 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		A0BBC1AC298B151A00A79754 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		A0BBC1AE298B17B300A79754 /* AddressesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				A0BBC1A4298AFDE700A79754 /* Info.plist */,
 				A0BBC19C298AFDE500A79754 /* AppInnovationOneFood.xcdatamodeld */,
 				A0BBC1AA298B01B100A79754 /* MapsViewController.swift */,
+				A0BBC1AC298B151A00A79754 /* Address.swift */,
+				A0BBC1AE298B17B300A79754 /* AddressesTableViewController.swift */,
 			);
 			path = AppInnovationOneFood;
 			sourceTree = "<group>";
@@ -144,10 +150,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0BBC1AD298B151B00A79754 /* Address.swift in Sources */,
 				A0BBC1AB298B01B100A79754 /* MapsViewController.swift in Sources */,
 				A0BBC198298AFDE500A79754 /* ViewController.swift in Sources */,
 				A0BBC194298AFDE500A79754 /* AppDelegate.swift in Sources */,
 				A0BBC196298AFDE500A79754 /* SceneDelegate.swift in Sources */,
+				A0BBC1AF298B17B300A79754 /* AddressesTableViewController.swift in Sources */,
 				A0BBC19E298AFDE500A79754 /* AppInnovationOneFood.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
