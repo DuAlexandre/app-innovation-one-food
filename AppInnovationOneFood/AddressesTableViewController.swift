@@ -20,8 +20,7 @@ class AddressesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,9 +29,9 @@ class AddressesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddressCell", for: indexPath)
-        let address = addresses[indexPath.row]
-        
-        cell.textLabel?.text = address.name
+        var address = cell.defaultContentConfiguration()
+        address.text = addresses[indexPath.row].name
+        cell.contentConfiguration = address
         
         return cell
     }
